@@ -13,10 +13,9 @@ class Janela:
         janela.title('Decodificação/Codificação em Binário')
         janela.geometry('400x400')
         janela.resizable(False,False)
-        janela.configure(bg=color)
-        janela.wm_iconbitmap('imagens/ico.ico')
+        janela.wm_iconbitmap('imagens/ico.ico') # Inserir ícone
 
-        # Imagem
+        # Imagem de Fundo
         img = PhotoImage(file='imagens/bg.png')
         self.imagem = Label()
         self.imagem.image = img
@@ -41,19 +40,19 @@ class Janela:
         self.b_credits = Button(text='Créditos',command=self.credits,bg=color2)
         self.b_credits.place(x=340,y=373)
 
-    def decript(self):
+    def decript(self): # Descriptografar mensagem
         value = self.entrada.get(0.0,END)
         descriptografado = binário.decript(value)
         self.saida.delete(0.0,END)
         self.saida.insert(END,descriptografado)
 
-    def cript(self):
+    def cript(self): # Criptografar mensagem
         value = self.entrada.get(0.0,END)
         criptografado = binário.cript(value)
         self.saida.delete(0.0,END)
         self.saida.insert(END,criptografado)
 
-    def credits(self):
+    def credits(self): # Exibir Créditos
         msgbox.showinfo('Créditos','Desenvolvido por: Guilherme Evaristo')
 
 root = Tk()
